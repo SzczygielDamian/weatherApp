@@ -1,3 +1,9 @@
 {
-    "jira-plugin.workingProject": ""
-}
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "jira-plugin.workingProject": "",
+    "editor.codeLens": true,
+    "typescript.referencesCodeLens.enabled": true,
+    "diffEditor.codeLens": true
+  }
+  
