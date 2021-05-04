@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
 
-import NotFoundPage from './views/NotFoundPage/NotFoundPage';
-import SearchPage from './views/SearchPage/SearchPage';
-import WeatherPage from './views/WeatherPage/WeatherPage';
+import NotFoundPage from '../views/NotFoundPage/NotFoundPage';
+import SearchPage from '../views/SearchPage/SearchPage';
+import WeatherPage from '../views/WeatherPage/WeatherPage';
 
 const Page = () => {
   return (
