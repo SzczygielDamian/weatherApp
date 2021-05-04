@@ -1,16 +1,21 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+
+import { store } from './store/store';
+
+import Page from './components/Page';
+
 import './App.css';
-import SearchPage from './components/views/SearchPage/SearchPage';
 
 const App = () => {
   return (
     <div className='App'>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path={'/'} component={SearchPage} />
-        </Switch>
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Page />
+        </BrowserRouter>
+      </Provider>
     </div>
   );
 };
