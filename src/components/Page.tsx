@@ -1,16 +1,24 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch } from "react-router-dom";
 
-import NotFoundPage from '../views/NotFoundPage/NotFoundPage';
-import SearchPage from '../views/SearchPage/SearchPage';
-import WeatherPage from '../views/WeatherPage/WeatherPage';
+import NotFoundPage from "../views/NotFoundPage/NotFoundPage";
+import SearchPage from "../views/SearchPage/SearchPage";
+import WeatherPage from "../views/WeatherPage/WeatherPage";
 
 const Page = () => {
   return (
     <>
       <Switch>
-        <Route exact path={'/'} component={SearchPage} />
-        <Route path={'/404'} component={NotFoundPage} />
-        <Route path={'/:city/'} component={WeatherPage} />
+        <Route exact path={"/"}>
+          <SearchPage />
+        </Route>
+        <Route path={"/404"}>
+          <SearchPage />
+          <NotFoundPage />
+        </Route>
+        <Route path={"/:city/"}>
+          <SearchPage />
+          <WeatherPage />
+        </Route>
       </Switch>
     </>
   );
