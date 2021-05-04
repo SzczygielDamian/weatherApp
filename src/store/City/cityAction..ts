@@ -1,3 +1,5 @@
+import history from '../../serivces/history';
+
 import axios from 'axios';
 import { APIKEY, apiWeather, lang } from '../../apiKey';
 
@@ -25,8 +27,14 @@ export const getCity = (city: string) => {
     axios
       .get(`${apiWeather}${city}&appid=${APIKEY}&lang=${lang} `)
       .then((res) => dispatch(getCitySuccess(res)))
+      .then(() => changePage('Ok', city))
       .catch((err) => {
         dispatch(getCityFailed(err));
+        changePage('Faild');
       });
   };
+};
+
+const changePage = (status: string, city?: string) => {
+  return status === 'Ok' ? history.push(`/:${city}/`) : history.push('/404');
 };

@@ -2,3 +2,15 @@
   margin: 1%;
   width: '25ch';
 }
+
+.container {
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1%;
+}
+
+.FormBox {
+  display: flex;
+  justify-content: space-between;
+}

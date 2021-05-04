@@ -25,7 +25,7 @@ const SearchPage: React.FC<SearchPageProps> = () => {
   };
 
   return (
-    <>
+    <div className={classes.container}>
       <form
         className={classes.root}
         noValidate
@@ -33,23 +33,25 @@ const SearchPage: React.FC<SearchPageProps> = () => {
         // eslint-disable-next-line no-restricted-globals
         onSubmit={() => handleSearchCity(getWeatherCity, event)}
       >
-        <TextField
-          id='outlined-basic'
-          label='lokalizacja'
-          variant='outlined'
-          value={city}
-          onChange={handleChangeCity}
-        />
-        <Button
-          variant='contained'
-          color='primary'
-          disableElevation
-          type='submit'
-        >
-          Szukaj
-        </Button>
+        <div className={classes.FormBox}>
+          <TextField
+            id='outlined-basic'
+            label='lokalizacja'
+            variant='outlined'
+            value={city}
+            onChange={handleChangeCity}
+          />
+          <Button
+            variant='contained'
+            color='primary'
+            disableElevation
+            type='submit'
+          >
+            Szukaj
+          </Button>
+        </div>
       </form>
-    </>
+    </div>
   );
 };
 
