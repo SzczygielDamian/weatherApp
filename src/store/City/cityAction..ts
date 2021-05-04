@@ -1,7 +1,7 @@
 import history from '../../serivces/history';
 
 import axios from 'axios';
-import { APIKEY, apiWeather, lang } from '../../apiKey';
+import { APIKEY, apiWeather, lang } from '../../apiConfiguration';
 
 export const GET_CITY_START = 'GET_CITY_START';
 export const GET_CITY_SUCCESS = 'GET_CITY_SUCCESS';
