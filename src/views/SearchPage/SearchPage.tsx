@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-import classes from "./SearchPage.module.scss";
+import classes from './SearchPage.module.scss';
 
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import { getCity } from "../../store/City/cityAction.";
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import { getCity } from '../../store/City/cityAction.';
 export interface SearchPageProps {}
 
 const handleSearchCity = (getWeatherCity: any, e: any) => {
@@ -14,15 +14,15 @@ const handleSearchCity = (getWeatherCity: any, e: any) => {
 };
 
 const SearchPage: React.FC<SearchPageProps> = () => {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState('');
 
   const handleChangeCity = (event: any) => setCity(event.target.value);
 
   const dispatch = useDispatch();
 
   const getWeatherCity = () => {
-    setCity("");
-    return dispatch(getCity(city));
+    setCity('');
+    dispatch(getCity(city));
   };
 
   return (
@@ -30,23 +30,23 @@ const SearchPage: React.FC<SearchPageProps> = () => {
       <form
         className={classes.root}
         noValidate
-        autoComplete="off"
+        autoComplete='off'
         // eslint-disable-next-line no-restricted-globals
         onSubmit={() => handleSearchCity(getWeatherCity, event)}
       >
         <div className={classes.FormBox}>
           <TextField
-            id="outlined-basic"
-            label="lokalizacja"
-            variant="outlined"
+            id='outlined-basic'
+            label='lokalizacja'
+            variant='outlined'
             value={city}
             onChange={handleChangeCity}
           />
           <Button
-            variant="contained"
-            color="primary"
+            variant='contained'
+            color='primary'
             disableElevation
-            type="submit"
+            type='submit'
           >
             Szukaj
           </Button>

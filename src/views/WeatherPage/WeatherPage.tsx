@@ -1,7 +1,7 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import CityWeather from "../../components/CityWeather/CityWeather";
-import { RootState } from "../../store/rootReducer";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import CityWeather from '../../components/CityWeather/CityWeather';
+import { RootState } from '../../store/rootReducer';
 
 export interface WeatherPageProps {}
 
