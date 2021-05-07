@@ -1,0 +1,19 @@
+.containerWeatherBox {
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1%;
+  background-image: linear-gradient(#1a357c, #5a3e8c);
+  border-radius: 2%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.containerWeatherDaysBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
