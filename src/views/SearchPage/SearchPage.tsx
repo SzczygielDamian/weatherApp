@@ -6,6 +6,7 @@ import classes from './SearchPage.module.scss';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { getCity } from '../../store/City/cityAction.';
+import { changeView } from '../../store/ViewWeatherBox/viewWeatherBoxAction';
 export interface SearchPageProps {}
 
 const handleSearchCity = (getWeatherCity: any, e: any) => {
@@ -22,6 +23,7 @@ const SearchPage: React.FC<SearchPageProps> = () => {
 
   const getWeatherCity = () => {
     setCity('');
+    dispatch(changeView(false));
     dispatch(getCity(city));
   };
 

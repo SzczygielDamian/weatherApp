@@ -8,7 +8,6 @@ export interface WeatherDaysBoxProps {
 }
 
 const WeatherDaysBox: React.FC<WeatherDaysBoxProps> = ({ weatherDays }) => {
-  console.log(weatherDays);
   return (
     <div className={classes.informationBox}>
       <p style={{ textAlign: 'center' }}>{dateCalculation(weatherDays.dt)}</p>

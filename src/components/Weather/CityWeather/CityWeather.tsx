@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { Button } from '@material-ui/core';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { getCityWeatherDays } from '../../../store/City/cityAction.';
+import { RootState } from '../../../store/rootReducer';
+import { changeView } from '../../../store/ViewWeatherBox/viewWeatherBoxAction';
 import WeatherBox from '../WeatherBox/WeatherBox';
 import WeatherDaysBox from '../WeatherDaysBox/WeatherDaysBox';
 import classes from './CityWeather.module.scss';
@@ -12,12 +15,14 @@ export interface CityWeatherProps {
 let weatherDaysComponents: any;
 
 const CityWeather: React.FC<CityWeatherProps> = ({ weather }) => {
-  const [fewDays, setFewDays] = useState(false);
+  const viewWeatherBox = useSelector(
+    (store: RootState) => store.viewWeatherBox.fewDays
+  );
 
   const dispatch = useDispatch();
 
   const getWeatherDays = (lat: number, lon: number, city: string) => {
-    setFewDays((prevState) => !prevState);
+    dispatch(changeView(!viewWeatherBox));
     dispatch(getCityWeatherDays(lat, lon, city));
   };
 
@@ -30,8 +35,12 @@ const CityWeather: React.FC<CityWeatherProps> = ({ weather }) => {
 
   return (
     <>
-      {!fewDays ? (
-        <div className={classes.containerWeatherBox}>
+      {!viewWeatherBox ? (
+        <div
+          className={[classes.containerWeatherBox, classes.centeringBox].join(
+            ' '
+          )}
+        >
           <WeatherBox
             weather={weather.cityWeather}
             getWeatherDays={getWeatherDays}
@@ -39,6 +48,16 @@ const CityWeather: React.FC<CityWeatherProps> = ({ weather }) => {
         </div>
       ) : (
         <div className={classes.main}>
+          <div className={classes.centeringBox}>
+            <Button
+              variant='contained'
+              color='primary'
+              disableElevation
+              onClick={() => dispatch(changeView(!viewWeatherBox))}
+            >
+              Pokaż pogodę na dzień dzisiejszy
+            </Button>
+          </div>
           <div className={classes.containerWeatherDaysBox}>
             {weatherDaysComponents}
           </div>
