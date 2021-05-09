@@ -1,10 +1,9 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
-import { celsiusTemperature } from '../../../serivces/celsiusTemperature';
+import React from "react";
+import { celsiusTemperature } from "../../../serivces/celsiusTemperature";
 
-import history from '../../../serivces/history';
+import history from "../../../serivces/history";
 
-import classes from './WeatherBox.module.scss';
+import classes from "./WeatherBox.module.scss";
 
 export interface WeatherBoxProps {
   weather: any;
@@ -13,7 +12,7 @@ export interface WeatherBoxProps {
 
 const WeatherBox: React.FC<WeatherBoxProps> = ({ weather, getWeatherDays }) => {
   if (weather == null) {
-    history.push('/404');
+    history.push("/404");
   }
 
   return (

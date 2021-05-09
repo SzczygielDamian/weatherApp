@@ -1,12 +1,14 @@
-import { Button } from '@material-ui/core';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCityWeatherDays } from '../../../store/City/cityAction.';
-import { RootState } from '../../../store/rootReducer';
-import { changeView } from '../../../store/ViewWeatherBox/viewWeatherBoxAction';
-import WeatherBox from '../WeatherBox/WeatherBox';
-import WeatherDaysBox from '../WeatherDaysBox/WeatherDaysBox';
-import classes from './CityWeather.module.scss';
+import { Button } from "@material-ui/core";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { colsName } from "../../../serivces/TableColName/tableColName";
+import { getCityWeatherDays } from "../../../store/City/cityAction.";
+import { RootState } from "../../../store/rootReducer";
+import { changeView } from "../../../store/ViewWeatherBox/viewWeatherBoxAction";
+import TableComponent from "../../TableComponent/TableComponents";
+import WeatherBox from "../WeatherBox/WeatherBox";
+import WeatherDaysBox from "../WeatherDaysBox/WeatherDaysBox";
+import classes from "./CityWeather.module.scss";
 
 export interface CityWeatherProps {
   weather: any;
@@ -38,7 +40,7 @@ const CityWeather: React.FC<CityWeatherProps> = ({ weather }) => {
       {!viewWeatherBox ? (
         <div
           className={[classes.containerWeatherBox, classes.centeringBox].join(
-            ' '
+            " "
           )}
         >
           <WeatherBox
@@ -50,8 +52,8 @@ const CityWeather: React.FC<CityWeatherProps> = ({ weather }) => {
         <div className={classes.main}>
           <div className={classes.centeringBox}>
             <Button
-              variant='contained'
-              color='primary'
+              variant="contained"
+              color="primary"
               disableElevation
               onClick={() => dispatch(changeView(!viewWeatherBox))}
             >
@@ -63,6 +65,7 @@ const CityWeather: React.FC<CityWeatherProps> = ({ weather }) => {
           </div>
         </div>
       )}
+      <TableComponent colsName={colsName} title="weatherCities" />
     </>
   );
 };
