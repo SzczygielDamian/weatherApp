@@ -1,5 +1,5 @@
-import { TableCell, TableRow } from "@material-ui/core";
-import React from "react";
+import { TableCell, TableRow } from '@material-ui/core';
+import React from 'react';
 
 export interface TableRowWeatherCitiesComponentProps {
   row?: any;
@@ -8,15 +8,14 @@ export interface TableRowWeatherCitiesComponentProps {
 const TableRowWeatherCitiesComponent: React.FC<TableRowWeatherCitiesComponentProps> = ({
   row,
 }) => {
-  console.log(row);
   return (
-    <TableRow key={row.name}>
-      <TableCell component="th" scope="row">
-        {row.name}
+    <TableRow key={row.key}>
+      <TableCell component='th' scope='row'>
+        {row.city}
       </TableCell>
-      <TableCell>{row.calories}</TableCell>
-      <TableCell>{row.fat}</TableCell>
-      <TableCell>{row.protein}</TableCell>
+      <TableCell>{row.temp}</TableCell>
+      <TableCell>{row.humidity}</TableCell>
+      <TableCell>{row.wind}</TableCell>
     </TableRow>
   );
 };
