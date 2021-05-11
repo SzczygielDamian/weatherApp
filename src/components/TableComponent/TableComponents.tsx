@@ -12,17 +12,24 @@ import Paper from '@material-ui/core/Paper';
 import TableRowWeatherCitiesComponent from '../TableRowComponent/TableRowWeatherCitiesComponent';
 
 import classes from './TableComponent.module.scss';
+import { RowModel } from '../../Model/rowModel';
 
 export interface TableComponentProps {
   colsName: Array<string>;
   title: string;
-  rows: any;
+  rows: Array<RowModel>;
 }
 
 export const tableRowData = (index: number, title: string, row: any) => {
   switch (title) {
     case 'weatherCities':
-      return <TableRowWeatherCitiesComponent index={index} row={row} />;
+      return (
+        <TableRowWeatherCitiesComponent
+          key={row.city}
+          index={index}
+          row={row}
+        />
+      );
   }
 };
 
@@ -44,7 +51,7 @@ const TableComponent: React.FC<TableComponentProps> = ({
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row: any, index: number) =>
+          {rows.map((row: RowModel, index: number) =>
             tableRowData(index, title, row)
           )}
         </TableBody>

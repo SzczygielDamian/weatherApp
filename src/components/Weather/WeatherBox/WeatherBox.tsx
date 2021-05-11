@@ -1,18 +1,19 @@
-import React from "react";
-import { celsiusTemperature } from "../../../serivces/celsiusTemperature";
+import React from 'react';
+import { cityWeatherModel } from '../../../Model/cityWeatherModel';
+import { celsiusTemperature } from '../../../serivces/celsiusTemperature';
 
-import history from "../../../serivces/history";
+import history from '../../../serivces/history';
 
-import classes from "./WeatherBox.module.scss";
+import classes from './WeatherBox.module.scss';
 
 export interface WeatherBoxProps {
-  weather: any;
+  weather: cityWeatherModel;
   getWeatherDays: Function;
 }
 
 const WeatherBox: React.FC<WeatherBoxProps> = ({ weather, getWeatherDays }) => {
   if (weather == null) {
-    history.push("/404");
+    history.push('/404');
   }
 
   return (

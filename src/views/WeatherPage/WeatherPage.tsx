@@ -7,9 +7,9 @@ import { RootState } from '../../store/rootReducer';
 export interface WeatherPageProps {}
 
 const WeatherPage: React.FC<WeatherPageProps> = () => {
-  const weather = useSelector((store: RootState) => store.weather);
+  const weatherStore = useSelector((store: RootState) => store.weather);
 
-  return <CityWeather weather={weather} />;
+  return <CityWeather weatherStore={weatherStore} />;
 };
 
 export default WeatherPage;
